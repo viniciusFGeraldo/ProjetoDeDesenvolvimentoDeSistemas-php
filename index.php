@@ -26,23 +26,31 @@
     <pre>
 
     <?php 
+        session_start();
+
         require_once "banco.php";
 
-        $usuario = $_POST['usuario'] ?? null;
-        $senha = $_POST['senha'] ?? null;
-        
-        if($usuario && $senha){
-            $busca = buscarUsuario($usuario);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if($busca->num_rows == 0){
-                echo "Usuário não existe.";
-            }else{
-                $obj = $busca->fetch_object();
-
-                if(password_verify($senha, $obj->senhaHash)){
-                    header("Location: paginaDeCadastro.php");
+            $usuario = $_POST['usuario'] ?? null;
+            $senha = $_POST['senha'] ?? null;
+            
+            if($usuario && $senha){
+                $busca = buscarUsuario($usuario);
+    
+                if($busca->num_rows == 0){
+                    echo "Usuário não existe.";
                 }else{
-                    echo "Senha incooreta..";
+                    $obj = $busca->fetch_object();
+    
+                    if(password_verify($senha, $obj->senhaHash)){
+                        $_SESSION['usuario'] = $usuario;
+                        $_SESSION['senha'] = $senha;
+                        echo "entrou com sucesso.";
+                        header("Location: gerenciador-livros.php");
+                    }else{
+                        echo "Senha incooreta..";
+                    }
                 }
             }
         }
