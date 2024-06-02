@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,11 @@
         <legend>Criar Conta</legend>
         <div>
             <label for="usuario">Usuário: </label>
-            <input type="text" name="usuario" id="usuario">
+            <input type="text" name="usuario" id="usuario" required>
         </div>
         <div>
             <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha">
+            <input type="password" name="senha" id="senha" required>
         </div>
         <input type="submit" value="Criar">
     </form>
