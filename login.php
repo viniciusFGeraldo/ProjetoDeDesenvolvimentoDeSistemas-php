@@ -48,6 +48,7 @@
                         $_SESSION['senha'] = $senha;
                         echo "entrou com sucesso.";
                         //header("Location: gerenciador-livros.php");
+                        header("Location: emprestimo.php");
                     }else{
                         echo "Senha incooreta..";
                     }
