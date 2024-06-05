@@ -8,44 +8,77 @@
 <body>
     <?php
     include 'banco.php';
+    session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['emprestar'])) {
-        $id_usuario = $_POST['id_usuario'];
-        $id_livro = $_POST['id_livro'];
-        $data_emprestimo = date('Y-m-d');
-        $data_prevista_devolucao = date('Y-m-d', strtotime($data_emprestimo. ' + 14 days'));
-
-        $q = "INSERT INTO emprestimos (id_usuario, id_livro, data_emprestimo, data_prevista_devolucao) VALUES ('$id_usuario', '$id_livro', '$data_emprestimo', '$data_prevista_devolucao')";
-
-        if ($banco->query($q) === TRUE) {
-            echo "Empréstimo registrado com sucesso";
-        } else {
-            echo "Erro: " . $q . "<br>" . $banco->error;
+    if(!isset($_SESSION["usuario"])){
+        header("Location: login.php");
+    }else{
+        if (isAdmin($_SESSION["usuario"])) {
+            echo "<a href='adicionar.php'><button>Adicionar Livro</button></a>";
+            echo "<a href='emprestimos-ativo.php'><button>Emprestimos Ativos</button></a>";
         }
     }
+
+    if (isset($_GET['idLivro'])) {
+        $id_usuario = $_SESSION["usuario"];
+        $id_livro = $_GET['idLivro'];
+        emprestar($id_usuario, $id_livro);
+
+        header("Location: ./emprestimo.php");
+    }
     ?>
-    <form method="post">
-        <label for="id_usuario">Usuário:</label>
-        <select name="id_usuario" required>
-            <?php
-            $q = "SELECT id, nomeUsuario FROM usuarios";
-            $resultado = $banco->query($q);
-            while($row = $resultado->fetch_assoc()) {
-                echo "<option value='" . $row['id'] . "'>" . $row['nomeUsuario'] . "</option>";
+
+
+    <h2>Lista de Livros</h2>
+    
+    <?php 
+        require_once "banco.php";
+
+        $q = "SELECT * FROM livros";
+        $busca = $banco->query($q);
+
+        if ($busca->num_rows > 0) {
+    ?>
+
+    <table style="width: 50%;">
+        <tr>
+            <th>CODIGO</th>
+            <th>TITULO</th>
+            <th>AUTOR</th>
+            <th>GENERO</th>
+            <th>ANO PUBLICAÇÃO</th>
+            <th>QUANTIDADE</th>
+            <th>AÇÕES</th>
+        </tr>
+
+        <?php 
+            while ($obj_livro = $busca->fetch_object()) { 
+                echo "<tr>";
+                echo "<td>$obj_livro->id</td>";
+                echo "<td>$obj_livro->titulo</td>";
+                echo "<td>$obj_livro->autor</td>";
+                echo "<td>$obj_livro->genero</td>";
+                echo "<td>$obj_livro->ano_publicacao</td>";
+                echo "<td>$obj_livro->quantidade</td>";
+                
+                echo "<td>";
+                echo "<a href='emprestimo.php?idLivro=$obj_livro->id'><button>Emprestar</button></a>";
+
+                if (isAdmin($_SESSION["usuario"])) {
+                    echo "<a href=\"editar.php?p=" . $obj_livro->id . "\"><button>Editar</button></a> ";
+                    echo "<a href=\"remover.php?p=" . $obj_livro->id . "\" onclick=\"return confirm('Tem certeza que deseja remover este livro?');\"><button>Remover</button></a>";
+                }
+               
+                echo "</td>";
+                echo "</tr>";
             }
-            ?>
-        </select><br>
-        <label for="id_livro">Livro:</label>
-        <select name="id_livro" required>
-            <?php
-            $q = "SELECT id, titulo FROM livros";
-            $resultado = $banco->query($q);
-            while($row = $resultado->fetch_assoc()) {
-                echo "<option value='" . $row['id'] . "'>" . $row['titulo'] . "</option>";
-            }
-            ?>
-        </select><br>
-        <input type="submit" name="emprestar" value="Registrar Empréstimo">
-    </form>
+        ?>
+    </table>
+
+    <?php 
+        } else {
+            echo "<p>Nenhum livro encontrado.</p>";
+        }
+    ?>
 </body>
 </html>

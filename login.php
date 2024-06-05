@@ -36,18 +36,15 @@
             $senha = $_POST['senha'] ?? null;
             
             if($usuario && $senha){
-                $busca = buscarUsuario($usuario);
+                $obj = buscarUsuario($usuario);
     
                 if($busca->num_rows == 0){
                     echo "Usuário não existe.";
                 }else{
-                    $obj = $busca->fetch_object();
     
                     if(password_verify($senha, $obj->senhaHash)){
                         $_SESSION['usuario'] = $usuario;
-                        $_SESSION['senha'] = $senha;
                         echo "entrou com sucesso.";
-                        //header("Location: gerenciador-livros.php");
                         header("Location: emprestimo.php");
                     }else{
                         echo "Senha incooreta..";
