@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .header-nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-link {
+            text-decoration: none;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 <body>
     <?php
@@ -14,8 +43,11 @@
         header("Location: login.php");
     }else{
         if (isAdmin($_SESSION["usuario"])) {
-            echo "<a href='adicionar.php'><button>Adicionar Livro</button></a>";
-            echo "<a href='emprestimos-ativo.php'><button>Emprestimos Ativos</button></a>";
+            echo "<nav class='header-nav'>";
+            echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
+            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
+            echo "<img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'>";
+            echo "</nav>";
         }
     }
 

@@ -8,7 +8,15 @@
     <style>
         body{
             background-color: #F2F2F2;
-        }      
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+        }
+        .logo {
+            width: 50%;
+            max-width: 100%;
+        }
         .btn-grad {
             background-image: linear-gradient(to right, #fc00ff 0%, #00dbde  51%, #fc00ff  100%);
             margin: 10px;
@@ -67,6 +75,9 @@
         <form action="" method="post" class="mt-5 p-4 bg-white border rounded">
             <fieldset>
                 <legend class="text-center mb-4">Bem - Vindo</legend>
+                <div class="logo-container">
+                    <img src="./img/logoBranca.jpg" alt=" logo fundo branco" class="logo">
+                </div>
                 <div class="form-group mb-4">
                     <label for="usuario">Usuário: </label>
                     <input type="text" class="form-control" name="usuario" id="usuario" required>

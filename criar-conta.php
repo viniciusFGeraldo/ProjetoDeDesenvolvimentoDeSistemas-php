@@ -9,6 +9,14 @@
         body{
             background-color: #F3F1F2;
         }
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .logo {
+            width: 40%;
+            max-width: 100%;
+        }
         .btn-danger{
             background-color: red;
             padding: 10px 40px;
@@ -37,7 +45,10 @@
     <img src="./img/img1criar.jpg" alt="imagem de fundo" class="img-crianca">
     <div class="container col-md-5">
                 <form action="" method="post" class="mt-3 p-4 bg-white border rounded">
-                    <legend class="text-center mb-2">Criar Conta</legend>
+                    <div class="container">
+                        <legend class="">Criar Conta</legend>
+                        <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">
+                    </div>
                     <div class="form-group mb-4">
                         <label for="nome">Nome Completo: </label>
                         <input type="text" class="form-control" name="nome" id="nome" required>
