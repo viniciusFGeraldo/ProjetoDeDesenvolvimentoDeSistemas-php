@@ -112,7 +112,7 @@
                 $obj = $busca->fetch_object();
         
                 if($busca->num_rows == 0){
-                    echo "Usuário não existe.";
+                    echo "<script>alert('Usuario Não existe')</script>";
                 }else{
                     
                     if(password_verify($senha, $obj->senhaHash)){
@@ -120,7 +120,7 @@
                         echo "entrou com sucesso.";
                         header("Location: emprestimo.php");
                     }else{
-                        echo "Senha incooreta..";
+                        echo "<script>alert('Senha incorreta...')</script>";
                     }
                 }
             }

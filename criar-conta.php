@@ -65,10 +65,6 @@
                         <label for="senha">Senha:</label>
                         <input type="password" class="form-control" name="senha" id="senha" required>
                     </div>
-                    <div class="form-group mb-4">
-                        <label for="confirmarSenha">Confirmar Senha:</label>
-                        <input type="password" class="form-control" name="confirmarSenha" id="confirmarSenha" required>
-                    </div>
                     <div class="text-center">
                         <input type="submit" value="Criar" class="btn btn-danger ">
                     </div>
@@ -79,10 +75,15 @@
     
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             require_once "banco.php";
+            $nomeCompleto = $_POST['nome'] ?? null;
             $nomeUsuario = $_POST['usuario'] ?? null;
+            $email = $_POST['email'] ?? null;
             $senha = $_POST['senha'] ?? null;
-            if ($nomeUsuario && $senha) {
-                criarUsuario($nomeUsuario, $senha);
+            if ($nomeCompleto && $nomeUsuario && $email && $senha) {
+                criarUsuario($nomeCompleto, $nomeUsuario, $email, $senha);
+                echo "<script>alert('Cadastro realizado com sucesso :) ')</script>";
+                echo "<script>window.location.href = 'login.php';</script>";
+                exit;
             }
         }
     ?>

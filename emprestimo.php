@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Empréstimo de livros</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        ul {
+            list-style: none;
+        }
         .header-nav {
             display: flex;
             justify-content: flex-start;
@@ -12,6 +22,7 @@
             padding: 10px 20px;
             background-color: #f0f0f0;
             border-bottom: 1px solid #ccc;
+            gap: 50px;
         }
 
         .nav-link {
@@ -32,6 +43,19 @@
             background-color: #0056b3;
         }
 
+        .logo{
+            object-fit: contain;
+            top: 10px;
+            right: 50%;
+            width: 120px;
+        }
+        .titulo{
+            padding: 20px;
+        }
+        .mensagem{
+            color: red;
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +85,7 @@
     ?>
 
 
-    <h2>Lista de Livros</h2>
+    <h2 class="titulo">Lista de Livros:</h2>
     
     <?php 
         require_once "banco.php";
@@ -109,7 +133,7 @@
 
     <?php 
         } else {
-            echo "<p>Nenhum livro encontrado.</p>";
+            echo "<p class='mensagem'>Nenhum livro encontrado.</p>";
         }
     ?>
 </body>
