@@ -34,9 +34,9 @@
         $q = "SELECT nomeUsuario,senha,senhaHash FROM usuarios WHERE nomeUsuario='$nomeUsuario'";
         $busca = $banco->query($q);
 
-        return $busca->fetch_object();
+        return $busca;
     }
-
+    
     function emprestar($id_usuario, $id_livro) {
         global $banco;
 

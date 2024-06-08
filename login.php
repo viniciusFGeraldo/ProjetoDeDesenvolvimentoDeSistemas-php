@@ -97,7 +97,8 @@
             $senha = $_POST['senha'] ?? null;
         
             if($usuario && $senha){
-                $obj = buscarUsuario($usuario);
+                $busca = buscarUsuario($usuario);
+                $obj = $busca->fetch_object();
         
                 if($busca->num_rows == 0){
                     echo "Usuário não existe.";
