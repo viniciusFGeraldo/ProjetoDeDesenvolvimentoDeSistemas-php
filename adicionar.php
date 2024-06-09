@@ -5,38 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Livro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        .titulo {
-            text-align: center;
-            font-size: 20px;
-            margin: 10px 0 30px 0;
-        }
-        .logo{
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            
-            width: 200px;
-        }
-        .centered-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 400px;
-        }
-        legend{
-            text-align: center;
-            color: red;
-        }
-        .btn{
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="./style/form-livro.css">
 </head>
 <body>
     <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">

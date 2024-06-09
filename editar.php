@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Livro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/form-livro.css">
 </head>
 <body>
     <?php
@@ -43,33 +45,35 @@
             header("Location: gerenciador-livros.php");
         }
     ?>
+    <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">
+    <div class="container centered-container">
+        <form action="" method="post">
+            <fieldset>
+                <legend>EDITAR LIVRO:</legend>
+                <label for="cod">Código:</label>
+                <input type="text" class="form-control mb-3" name="cod" value="<?= $cod ?>" disabled>
+    
+                <label for="titulo">Título:</label>
+                <input type="text" class="form-control mb-3" name="titulo" value="<?= $titulo ?>" required>
 
-    <form action="" method="post">
-        <label for="cod">Código:</label>
-        <input type="text" name="cod" value="<?= $cod ?>" disabled>
+                <label for="autor">Autor:</label>
+                <input type="text" class="form-control mb-3" name="autor" value="<?= $autor ?>" required>
 
-        <br>
-        <label for="titulo">Título:</label>
-        <input type="text" name="titulo" value="<?= $titulo ?>">
+                <label for="genero">Gênero:</label>
+                <input type="text" class="form-control mb-3" name="genero" value="<?= $genero ?>" required>
 
-        <br>
-        <label for="autor">Autor:</label>
-        <input type="text" name="autor" value="<?= $autor ?>">
+                <label for="ano_publicacao">Ano de Publicação:</label>
+                <input type="text" class="form-control mb-3" name="ano_publicacao" value="<?= $ano_publicacao ?>" required>
 
-        <br>
-        <label for="genero">Gênero:</label>
-        <input type="text" name="genero" value="<?= $genero ?>">
+                <label for="quantidade">Quantidade:</label>
+                <input type="text" class="form-control mb-3" name="quantidade" value="<?= $quantidade ?>" required>
 
-        <br>
-        <label for="ano_publicacao">Ano de Publicação:</label>
-        <input type="text" name="ano_publicacao" value="<?= $ano_publicacao ?>">
+                <div class="text-center">
+                    <input type="submit" class="btn btn-success mt-3" value="Salvar">
+                </div>
 
-        <br>
-        <label for="quantidade">Quantidade:</label>
-        <input type="text" name="quantidade" value="<?= $quantidade ?>">
-
-        <br>
-        <input type="submit" value="Salvar">
-    </form>
+            </fieldset>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,0 +1,31 @@
+body{
+    background-color: #F3F1F2;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    width: 40%;
+    max-width: 100%;
+}
+.btn-danger{
+    background-color: red;
+    padding: 10px 40px;
+}
+.btn-danger:hover{
+    background-color: #117f09;
+    border-color: #117f09;
+}
+.img-crianca {
+    position: absolute;
+    object-fit: contain;
+    width: 25vw;
+    bottom: 0;
+
+}
+@media (max-width: 770px){
+    .img-crianca{
+        display: none;
+    }
+}

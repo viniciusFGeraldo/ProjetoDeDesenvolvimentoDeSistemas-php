@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+ul {
+    list-style: none;
+}
+.header-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    gap: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.logo{
+    object-fit: contain;
+    top: 10px;
+    right: 50%;
+    width: 120px;
+}
+.titulo{
+    padding: 20px;
+}
+.mensagem{
+    color: red;
+    padding-left: 20px;
+}
+.container-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: #f0f0f0;
+}
+
+th, td {
+    border: 1px solid #dcdcdc;
+    padding: 8px;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background-color: #e9ecef;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.edit {
+    background-color: #1aa810;
+}
+
+button.edit:hover {
+    background-color: #148a0b;
+}
+
+button.delete {
+    background-color: red;
+}
+
+button.delete:hover {
+    background-color: rgb(206, 7, 7);
+}

@@ -4,59 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empréstimo de livros</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-        }
-
-        ul {
-            list-style: none;
-        }
-        .header-nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #ccc;
-            gap: 50px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-        }
-
-        .btn {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        .logo{
-            object-fit: contain;
-            top: 10px;
-            right: 50%;
-            width: 120px;
-        }
-        .titulo{
-            padding: 20px;
-        }
-        .mensagem{
-            color: red;
-            padding-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style/emprestimo.css">
 </head>
 <body>
     <?php
@@ -95,45 +43,47 @@
 
         if ($busca->num_rows > 0) {
     ?>
-
-    <table style="width: 50%;">
-        <tr>
-            <th>CODIGO</th>
-            <th>TITULO</th>
-            <th>AUTOR</th>
-            <th>GENERO</th>
-            <th>ANO PUBLICAÇÃO</th>
-            <th>QUANTIDADE</th>
-            <th>AÇÕES</th>
-        </tr>
-
-        <?php 
-            while ($obj_livro = $busca->fetch_object()) { 
-                echo "<tr>";
-                echo "<td>$obj_livro->id</td>";
-                echo "<td>$obj_livro->titulo</td>";
-                echo "<td>$obj_livro->autor</td>";
-                echo "<td>$obj_livro->genero</td>";
-                echo "<td>$obj_livro->ano_publicacao</td>";
-                echo "<td>$obj_livro->quantidade</td>";
-                
-                echo "<td>";
-                echo "<a href='emprestimo.php?idLivro=$obj_livro->id'><button>Emprestar</button></a>";
-
-                if (isAdmin($_SESSION["usuario"])) {
-                    echo "<a href=\"editar.php?p=" . $obj_livro->id . "\"><button>Editar</button></a> ";
-                    echo "<a href=\"remover.php?p=" . $obj_livro->id . "\" onclick=\"return confirm('Tem certeza que deseja remover este livro?');\"><button>Remover</button></a>";
+    <div class="container-table">
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Ano publicado</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+    
+            <?php 
+                while ($obj_livro = $busca->fetch_object()) { 
+                    echo "<tr>";
+                    echo "<td>$obj_livro->id</td>";
+                    echo "<td>$obj_livro->titulo</td>";
+                    echo "<td>$obj_livro->autor</td>";
+                    echo "<td>$obj_livro->genero</td>";
+                    echo "<td>$obj_livro->ano_publicacao</td>";
+                    echo "<td>$obj_livro->quantidade</td>";
+                    
+                    echo "<td>";
+                    echo "<a href='emprestimo.php?idLivro=$obj_livro->id'><button>Emprestar</button></a>";
+    
+                    if (isAdmin($_SESSION["usuario"])) {
+                        echo "<a href=\"editar.php?p=" . $obj_livro->id . "\"><button class='edit'>Editar</button></a> ";
+                        echo "<a href=\"remover.php?p=" . $obj_livro->id . "\" onclick=\"return confirm('Tem certeza que deseja remover este livro?');\"><button class='delete'>Remover</button></a>";
+                    }
+                   
+                    echo "</td>";
+                    echo "</tr>";
                 }
-               
-                echo "</td>";
-                echo "</tr>";
-            }
-        ?>
-    </table>
+            ?>
+        </table>
+    </div>
 
     <?php 
         } else {
             echo "<p class='mensagem'>Nenhum livro encontrado.</p>";
+            
         }
     ?>
 </body>
