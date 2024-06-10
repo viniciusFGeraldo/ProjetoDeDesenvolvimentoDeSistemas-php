@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empréstimo de livros</title>
     <link rel="stylesheet" href="./style/emprestimo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <?php
@@ -16,9 +17,16 @@
     }else{
         if (isAdmin($_SESSION["usuario"])) {
             echo "<nav class='header-nav'>";
+            echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
             echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
-            echo "<img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger'>Sair</button></a>";
+            echo "</nav>";
+        }else{
+            echo "<nav class='header-nav'>";
+            echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
+            echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger'>Sair</button></a>";
             echo "</nav>";
         }
 
@@ -27,7 +35,13 @@
             $id_usuario = $_SESSION["usuario"];
             $id_livro = $_GET['idLivro'];
             emprestar($id_usuario, $id_livro);
-            echo "<script>window.location.href = 'emprestimo.php';</script>";
+
+            if(isAdmin($_SESSION["usuario"])){
+                echo "<script>window.location.href = 'emprestimos-ativo.php';</script>";
+
+            }else{
+                echo "<script>window.location.href = 'emprestimos-ativo-usuario.php';</script>";
+            }
         }
     }
 

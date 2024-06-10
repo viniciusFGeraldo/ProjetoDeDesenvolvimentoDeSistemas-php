@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/06/2024 às 16:38
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 10-Jun-2024 às 16:20
+-- Versão do servidor: 8.0.27
+-- versão do PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,75 +24,87 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `emprestimos`
+-- Estrutura da tabela `emprestimos`
 --
 
 CREATE TABLE `emprestimos` (
-  `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_livro` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `id_usuario` int NOT NULL,
+  `id_livro` int NOT NULL,
   `data_emprestimo` date NOT NULL,
-  `data_devolucao` date NOT NULL,
+  `data_devolucao` date DEFAULT NULL,
   `data_prevista_devolucao` date NOT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'emprestado'
+  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'emprestado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `emprestimos`
+--
+
+INSERT INTO `emprestimos` (`id`, `id_usuario`, `id_livro`, `data_emprestimo`, `data_devolucao`, `data_prevista_devolucao`, `status`) VALUES
+(88, 4, 17, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(89, 4, 17, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(90, 4, 17, '2024-06-10', NULL, '2024-06-24', 'emprestado'),
+(91, 3, 17, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(92, 3, 19, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(94, 2, 19, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(95, 2, 17, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido'),
+(96, 3, 19, '2024-06-10', '2024-06-10', '2024-06-24', 'devolvido');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `livros`
+-- Estrutura da tabela `livros`
 --
 
 CREATE TABLE `livros` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(150) NOT NULL,
-  `autor` varchar(150) NOT NULL,
-  `genero` varchar(150) NOT NULL,
-  `ano_publicacao` year(4) NOT NULL,
-  `quantidade` int(11) NOT NULL DEFAULT 1
+  `id` int NOT NULL,
+  `titulo` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `autor` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `genero` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `ano_publicacao` int NOT NULL,
+  `quantidade` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `livros`
+-- Extraindo dados da tabela `livros`
 --
 
 INSERT INTO `livros` (`id`, `titulo`, `autor`, `genero`, `ano_publicacao`, `quantidade`) VALUES
-(10, 'Orçamento sem falhas', 'Nath Finanças', 'finanças', '2021', 3),
-(11, 'Minha Sombria Vanessa', 'Kate Elizabeth Russell', 'romance', '2020', 5),
-(12, 'Oblivion Song: Entre Dois Mundos', 'Robert Kirkman', 'aventura', '2020', 4),
-(13, 'Cidade nas Trevas', 'Adam Christopher', 'suspense', '2020', 3),
-(14, 'A Tumba do Tirano', 'Rick Riordan', 'aventura', '2018', 6);
+(17, 'dsadas', 'asdsada', 'asdasdsa', 2024, 0),
+(19, 'asdasdsad', 'sadasdas', 'dasdasdas', 1999, 21);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(150) NOT NULL,
-  `usuario` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `senha` varchar(150) NOT NULL,
-  `senhaHash` varchar(150) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
+  `id` int NOT NULL,
+  `nome` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `usuario` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `senhaHash` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `email`, `senha`, `senhaHash`, `isAdmin`) VALUES
 (2, 'João Juan Duarte', 'joao', 'joao_juan_duarte@hotamail.com', '123', '$2y$10$ptmDAtJ8MHVC9auriJaepeFTrYJtvFO5QCXn5wuxuGW0vE5vIG3Aa', 1),
-(3, 'Cristiane Giovana Marina Farias', 'cristiane', 'cristiane-farias99@inglesasset.com.br', '987', '$2y$10$q0ogYpJ/0s3E3npnTK5PzOYwP1Q.Dkgrd0HTbRviGt2cD9Z23kMHK', 0);
+(3, 'Cristiane Giovana Marina Farias', 'cristiane', 'cristiane-farias99@inglesasset.com.br', '987', '$2y$10$q0ogYpJ/0s3E3npnTK5PzOYwP1Q.Dkgrd0HTbRviGt2cD9Z23kMHK', 0),
+(4, 'Thiago Schwantes de Moura', 'thi', 'thiagodemoura2015@gmail.com', '123', '$2y$10$QmkiZolz6RHxGO9xYUvd1.YIzfx.PBOVBn0KOQubhNRYvDSvI/pOa', 1);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `emprestimos`
+-- Índices para tabela `emprestimos`
 --
 ALTER TABLE `emprestimos`
   ADD PRIMARY KEY (`id`),
@@ -100,45 +112,45 @@ ALTER TABLE `emprestimos`
   ADD KEY `is_livro` (`id_livro`);
 
 --
--- Índices de tabela `livros`
+-- Índices para tabela `livros`
 --
 ALTER TABLE `livros`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `usuarios`
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `emprestimos`
 --
 ALTER TABLE `emprestimos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT de tabela `livros`
 --
 ALTER TABLE `livros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `emprestimos`
+-- Limitadores para a tabela `emprestimos`
 --
 ALTER TABLE `emprestimos`
   ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
