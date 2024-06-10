@@ -16,9 +16,11 @@ if (is_null($cod)) {
 
 require_once "banco.php";
 
+$q = "DELETE FROM emprestimos WHERE id_livro='$cod'";
+$banco->query($q);
 $q = "DELETE FROM livros WHERE id='$cod'";
 $banco->query($q);
 
-header("Location: gerenciador-livros.php");
+header("Location: emprestimo.php");
 exit();
 ?>

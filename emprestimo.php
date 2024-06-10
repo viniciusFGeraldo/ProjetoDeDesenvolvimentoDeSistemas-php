@@ -21,15 +21,17 @@
             echo "<img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'>";
             echo "</nav>";
         }
+
+
+        if (isset($_GET['idLivro'])) {
+            $id_usuario = $_SESSION["usuario"];
+            $id_livro = $_GET['idLivro'];
+            emprestar($id_usuario, $id_livro);
+            echo "<script>window.location.href = 'emprestimo.php';</script>";
+        }
     }
 
-    if (isset($_GET['idLivro'])) {
-        $id_usuario = $_SESSION["usuario"];
-        $id_livro = $_GET['idLivro'];
-        emprestar($id_usuario, $id_livro);
-
-        header("Location: ./emprestimo.php");
-    }
+    
     ?>
 
 

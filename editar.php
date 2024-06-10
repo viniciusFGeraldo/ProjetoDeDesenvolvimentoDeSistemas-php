@@ -42,7 +42,7 @@
         } else {
             $q = "UPDATE livros SET titulo='$titulo', autor='$autor', genero='$genero', ano_publicacao='$ano_publicacao', quantidade='$quantidade' WHERE id='$cod'";
             $banco->query($q);
-            header("Location: gerenciador-livros.php");
+            header("Location: emprestimo.php");
         }
     ?>
     <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">

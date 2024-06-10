@@ -37,6 +37,10 @@
 
         session_start();
 
+        if(isset($_SESSION["usuario"])){
+            header("Location: emprestimo.php");
+        }
+
         require_once "banco.php";
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -23,9 +23,19 @@
         }
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['devolver'])) {
-        $id_emprestimo = $_POST['id_emprestimo'];
+    if (isset($_GET['id_emprestimo'])) {
+        $id_emprestimo = $_GET['id_emprestimo'];
         $data_devolucao = date('Y-m-d');
+
+        $q = "  SELECT id_livro FROM emprestimos WHERE id='$id_emprestimo'";
+        $id_livro = $banco->query($q)->fetch_object()->id_livro;
+
+        $q = "SELECT quantidade FROM livros WHERE id='$id_livro'";
+        $quantidade = $banco->query($q)->fetch_object()->quantidade;
+        $quantidade ++;
+
+        $q = "UPDATE livros SET quantidade = '$quantidade' WHERE id = '$id_livro'";
+        $banco->query($q);
 
         $q = "UPDATE emprestimos SET data_devolucao='$data_devolucao', status='devolvido' WHERE id='$id_emprestimo'";
 
@@ -34,6 +44,7 @@
         } else {
             echo "Erro: " . $q . "<br>" . $banco->error;
         }
+        header("Location: emprestimos-ativo.php");
     }
 ?>
 <h2 class="titulo">Empréstimos Ativos: </h2>
@@ -63,10 +74,7 @@
                         <td>" . $row['data_emprestimo'] . "</td>
                         <td>" . $row['data_prevista_devolucao'] . "</td>
                         <td>
-                            <form method='post'>
-                                <input type='hidden' name='id_emprestimo' value='" . $row['id'] . "'>
-                                <input type='submit' name='devolver' value='Devolver'>
-                            </form>
+                            <a href='emprestimos-ativo.php?id_emprestimo=".$row['id']."'><button>Devolver</button></a>
                         </td>
                     </tr>";
             }
