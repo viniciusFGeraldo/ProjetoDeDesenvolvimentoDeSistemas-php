@@ -1,33 +1,31 @@
 # ProjetoDeDesenvolvimentoDeSistemas-php
 projeto final de desenvolvimento de sistema com linguagem php
 
+Orientações para o professor testar o sistema:
+A PÁGINA PRINCIPAL É A login.php
 
-banco de dados-> 
-    nome do banco = biblioteca
+O sistema é dividido em dois tipos de usuários:
+------------------------------------------------------------------
+1 - Administrador:
 
-    tabela 1 ->
-        nome da tabela = usuarios
-            id - int - primary key marcado,
-            nomeUsuario - varchar - 50,
-            senha - varchar - 50,
-            senhaHash - varchar - 100,
-            isAdmin - tinyint(1) - padrão 0
+Usuário: joao
+Senha: 123
 
-    tabela 2 ->
-        nome da tabela = livros
-            id - int - primary key marcado,
-            titulo - varchar - 100,
-            autor - varchar - 100,
-            genero - varchar - 100,
-            ano_publicacao - year,
-            quantidade - int - 11 - padrão 1
+Com esta conta, é possível cadastrar, alterar e deletar livros, além de visualizá-los. Também é possível receber a devolução dos livros, permitindo uma administração completa do sistema.
+------------------------------------------------------------------
+2 - Usuário Padrão:
 
-    tabela 3 ->
-        nome da tabela = emprestimos
-            id - int - primary key marcado,
-            id_usuario - int - 11,
-            id_livro - int - 11,
-            data_emprestimo - date,
-            data_devolucao - date,
-            data_prevista_devolucao - date,
-            status - varchar - 50 - padrao emprestado
+Esse tipo de usuário pode ser cadastrado automaticamente na opção "Criar Conta". Fizemos o exemplo abaixo:
+
+Usuário: cristiane
+Senha: 987
+
+Esta conta permite visualizar todos os livros disponíveis e emprestar livros, mas sem acesso ao controle administrativo do sistema.
+------------------------------------------------------------------
+
+FALTA FAZER:
+-BOTÃO DE SAIR: DENTROI A SSESSION E VOLTA PARA PAGINA DE LOGIN
+-O BOTAO DE EMPRESTAR TA DANDO ERRO
+-O BOTAO DE DELETAR LIVRO ESTA DANDO ERRO
+-DEFINIR COMO VAI FICAR A DEVOLUÇÃO DO LIVRO PARA USUARIO PADRÃO
+-CONFIGURAÇÃO PARA ALTERAR A QUANTIDADE QUANDO EMPRESTADO O LIVRO OU DEVOLVIDO
