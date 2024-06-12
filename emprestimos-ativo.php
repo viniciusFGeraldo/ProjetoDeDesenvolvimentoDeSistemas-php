@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empréstimos Ativos</title>
     <link rel="stylesheet" href="./style/emprestimo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
 <?php
@@ -19,7 +21,7 @@
             echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
             echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
-            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger'>Sair</button></a>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
         }
     }
@@ -75,7 +77,7 @@
                         <td>" . $row['data_emprestimo'] . "</td>
                         <td>" . $row['data_prevista_devolucao'] . "</td>
                         <td>
-                            <a href='emprestimos-ativo.php?id_emprestimo=".$row['id']."'><button>Devolver</button></a>
+                            <a href='emprestimos-ativo.php?id_emprestimo=".$row['id']."'><button class='btn'>Devolver</button></a>
                         </td>
                     </tr>";
             }

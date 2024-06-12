@@ -20,7 +20,7 @@
             echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
             echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
-            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger'>Sair</button></a>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
         }else{
             echo "<nav class='header-nav'>";
@@ -82,11 +82,11 @@
                     echo "<td>$obj_livro->quantidade</td>";
                     
                     echo "<td>";
-                    echo "<a href='emprestimo.php?idLivro=$obj_livro->id'><button>Emprestar</button></a>";
+                    echo "<a href='emprestimo.php?idLivro=$obj_livro->id'><button class='btn'>Emprestar</button></a>";
     
                     if (isAdmin($_SESSION["usuario"])) {
-                        echo "<a href=\"editar.php?p=" . $obj_livro->id . "\"><button class='edit'>Editar</button></a> ";
-                        echo "<a href=\"remover.php?p=" . $obj_livro->id . "\" onclick=\"return confirm('Tem certeza que deseja remover este livro?');\"><button class='delete'>Remover</button></a>";
+                        echo "<a href=\"editar.php?p=" . $obj_livro->id . "\"><button class='btn edit'>Editar</button></a> ";
+                        echo "<a href=\"remover.php?p=" . $obj_livro->id . "\" onclick=\"return confirm('Tem certeza que deseja remover este livro?');\"><button class='btn delete'>Remover</button></a>";
                     }
                    
                     echo "</td>";

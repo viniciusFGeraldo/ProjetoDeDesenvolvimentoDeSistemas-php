@@ -6,9 +6,17 @@
     <title>Adicionar Livro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/form-livro.css">
+    <style>
+        #sair {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">
+    <a href='logout.php' class='nav-link' id="sair"><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>;
     <div class="container centered-container">
         <h1 class="titulo">Preencha os campos abaixo para adicionar um novo livro:</h1>
         <div class="form-container">

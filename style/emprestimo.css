@@ -11,7 +11,7 @@ ul {
 .header-nav {
     width: 100vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f0f0;
@@ -23,24 +23,11 @@ ul {
     text-decoration: none;
 }
 
-.btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
 .logo{
     object-fit: contain;
     top: 10px;
     width: 120px;
+    
 }
 .titulo{
     padding: 20px;
@@ -91,8 +78,8 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
+    font-size: 8px;
+    margin: 4px 20px;
     cursor: pointer;
     border-radius: 4px;
 }
@@ -115,4 +102,4 @@ button.delete {
 
 button.delete:hover {
     background-color: rgb(206, 7, 7);
-}
+} 

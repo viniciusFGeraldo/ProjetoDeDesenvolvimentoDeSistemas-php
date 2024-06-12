@@ -23,9 +23,4 @@ Senha: 987
 Esta conta permite visualizar todos os livros disponíveis e emprestar livros, mas sem acesso ao controle administrativo do sistema.
 ------------------------------------------------------------------
 
-FALTA FAZER:
--BOTÃO DE SAIR: DENTROI A SSESSION E VOLTA PARA PAGINA DE LOGIN
--O BOTAO DE EMPRESTAR TA DANDO ERRO
--O BOTAO DE DELETAR LIVRO ESTA DANDO ERRO
--DEFINIR COMO VAI FICAR A DEVOLUÇÃO DO LIVRO PARA USUARIO PADRÃO
--CONFIGURAÇÃO PARA ALTERAR A QUANTIDADE QUANDO EMPRESTADO O LIVRO OU DEVOLVIDO
+

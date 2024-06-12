@@ -21,7 +21,7 @@
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
             echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
             echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Emprestimos Ativos do Usuario Normal</button></a>";
-            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger'>Sair</button></a>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
         }else{
             echo "<nav class='header-nav'>";

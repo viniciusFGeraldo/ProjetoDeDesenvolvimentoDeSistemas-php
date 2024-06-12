@@ -1,6 +1,6 @@
 <?php 
 
-    $banco = new mysqli("localhost", "root", "positivo", "biblioteca");
+    $banco = new mysqli("localhost", "root", "", "biblioteca");
 
     if ($banco->connect_error) {
         die("Conexão falhou: " . $banco->connect_error);
