@@ -1,21 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
 .titulo {
     text-align: center;
     font-size: 20px;
     margin: 10px 0 30px 0;
-}
-.logo{
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    
-    width: 200px;
 }
 .centered-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 75vh;
 }
 .form-container {
     width: 100%;
@@ -27,4 +26,67 @@ legend{
 }
 .btn{
     align-items: center;
+} 
+
+
+ul {
+    list-style: none;
+}
+.header-nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    gap: 50px;
+    margin-bottom: 30px !important;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.logo{
+    object-fit: contain;
+    top: 10px;
+    width: 120px;
+    
+} 
+
+
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    margin: 4px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.edit {
+    background-color: #1aa810;
+}
+
+button.edit:hover {
+    background-color: #148a0b;
+}
+
+button.delete {
+    background-color: red;
+}
+
+button.delete:hover {
+    background-color: rgb(206, 7, 7);
 } 

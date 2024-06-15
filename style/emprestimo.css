@@ -17,6 +17,7 @@ ul {
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
     gap: 50px;
+    margin-bottom: 30px !important;
 }
 
 .nav-link {
@@ -30,7 +31,8 @@ ul {
     
 }
 .titulo{
-    padding: 20px;
+    margin: 20px;
+    margin-left: 5%;
 }
 .mensagem{
     color: red;
@@ -46,6 +48,7 @@ table {
     width: 90%;
     border-collapse: collapse;
     background-color: #f0f0f0;
+    margin-bottom: 3%;
 }
 
 th, td {

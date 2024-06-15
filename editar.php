@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Livro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/form-livro.css">
+
 </head>
 <body>
     <?php
+        include 'banco.php';
         session_start();
+
+        if (isAdmin($_SESSION["usuario"])) {
+            echo "<nav class='header-nav'>";
+            echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
+            echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
+            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Empréstimos Ativos</button></a>";
+            echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Empréstimos Ativos Ativos do Admin</button></a>";
+            echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
+            echo "</nav>";
+        }else{
+            header("Location: emprestimo.php");
+        }
+
         $usu = $_SESSION["usuario"] ?? null;
 
         if (is_null($usu)) {
@@ -45,7 +61,6 @@
             header("Location: emprestimo.php");
         }
     ?>
-    <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">
     <div class="container centered-container">
         <form action="" method="post">
             <fieldset>

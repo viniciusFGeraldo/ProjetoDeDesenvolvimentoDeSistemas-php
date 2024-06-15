@@ -20,9 +20,12 @@
             echo "<nav class='header-nav'>";
             echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
-            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Emprestimos Ativos</button></a>";
+            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Empréstimos Ativos</button></a>";
+            echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Empréstimos Ativos Ativos do Admin</button></a>";
             echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
+        }else{
+            header("Location: emprestimo.php");
         }
     }
 
@@ -70,12 +73,15 @@
         $resultado = $banco->query($q);
         if ($resultado->num_rows > 0) {
             while($row = $resultado->fetch_assoc()) {
+                $dataEmprestimo = new DateTime($row['data_emprestimo']);
+                $dataPrevisao = new DateTime($row['data_prevista_devolucao']);
+
                 echo "<tr>
                         <td>" . $row['id'] . "</td>
                         <td>" . $row['usuario'] . "</td>
                         <td>" . $row['titulo'] . "</td>
-                        <td>" . $row['data_emprestimo'] . "</td>
-                        <td>" . $row['data_prevista_devolucao'] . "</td>
+                        <td>" . $dataEmprestimo->format("d/m/Y"). "</td>
+                        <td>" . $dataPrevisao->format("d/m/Y") . "</td>
                         <td>
                             <a href='emprestimos-ativo.php?id_emprestimo=".$row['id']."'><button class='btn'>Devolver</button></a>
                         </td>

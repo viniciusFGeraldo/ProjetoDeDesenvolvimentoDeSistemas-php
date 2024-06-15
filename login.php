@@ -23,9 +23,10 @@
                     <label for="senha">Senha:</label>
                     <input type="password" class="form-control" name="senha" id="senha" required>
                 </div>
-                <div class="text-center">
-                    <a href="./criar-conta.php" class="d-block mb-3 create-account-link">Criar Conta</a>
-                    <input type="submit" value="Entrar" class="btn btn-primary btn-grad">
+                <div class="text-center d-flex flex-column align-items-center">
+                    
+                    <input type="submit" value="Entrar" class="btn btn-primary btn-grad mb-3 w-50">
+                    <a href="./criar-conta.php" class="d-block mb-3 create-account-link w-25 ">Criar Conta</a>
                     
                 </div>
             </fieldset>
