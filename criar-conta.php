@@ -27,23 +27,23 @@
                         <img src="./img/logoBranca.jpg" alt="logo com fundo branco" class="logo">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="nome">Nome Completo: </label>
+                        <label for="nome">Nome Completo </label>
                         <input type="text" class="form-control" name="nome" id="nome" required>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="usuario">Usuário: </label>
+                        <label for="usuario">Usuário </label>
                         <input type="text" class="form-control" name="usuario" id="usuario" required>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="email">Email: </label>
+                        <label for="email">Email </label>
                         <input type="text" class="form-control" name="email" id="email" required>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="senha">Senha:</label>
+                        <label for="senha">Senha </label>
                         <input type="password" class="form-control" name="senha" id="senha" required>
                     </div>
                     <div class="text-center">
-                        <input type="submit" value="Criar" class="btn btn-primary w-50">
+                        <input type="submit" value="Criar" class="btn btn-success w-50">
                     </div>
                 </form>
     </div>

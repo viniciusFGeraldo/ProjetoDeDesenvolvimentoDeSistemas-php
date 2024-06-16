@@ -26,7 +26,7 @@
                 <div class="text-center d-flex flex-column align-items-center">
                     
                     <input type="submit" value="Entrar" class="btn btn-primary btn-grad mb-3 w-50">
-                    <a href="./criar-conta.php" class="d-block mb-3 create-account-link w-25 ">Criar Conta</a>
+                    <a href="./criar-conta.php" class="d-block mb-3 create-account-link ">Criar Conta</a>
                     
                 </div>
             </fieldset>

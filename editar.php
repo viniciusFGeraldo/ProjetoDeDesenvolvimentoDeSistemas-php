@@ -19,7 +19,7 @@
             echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn'>Adicionar Livro</button></a>";
             echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn'>Empréstimos Ativos</button></a>";
-            echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Empréstimos Ativos Ativos do Admin</button></a>";
+            echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn'>Empréstimos Ativos do Admin</button></a>";
             echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
         }else{

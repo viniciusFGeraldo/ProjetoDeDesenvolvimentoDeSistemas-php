@@ -28,7 +28,7 @@
             echo "<nav class='header-nav'>";
             echo "<a href='emprestimo.php'><img src='./img/logo.jpg' alt='logo fundo cinza' class='logo'></a>";
             echo "<a href='adicionar.php' class='nav-link'><button class='btn btn-primary'>Adicionar Livro</button></a>";
-            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn btn-primary'>Emprestimos Ativos</button></a>";
+            echo "<a href='emprestimos-ativo.php' class='nav-link'><button class='btn btn-primary'>Empréstimos Ativos</button></a>";
             echo "<a href='emprestimos-ativo-usuario.php' class='nav-link'><button class='btn btn-primary'>Empréstimos Ativos do Admin</button></a>";
             echo "<a href='logout.php' class='nav-link'><button class='btn btn-danger' style='width: 80px;'>Sair</button></a>";
             echo "</nav>";
@@ -44,15 +44,12 @@
     <div class="container centered-container">
         <div class="form-container">
             <form action="" method="post">
-            <legend class="mb-4">CADASTRO DE LIVRO:</legend>
                 <fieldset>
-
-
+                    <legend class="mb-4">CADASTRO DE LIVRO:</legend>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="titulo" id="titulo" required>
                         <label for="titulo">Título</label>
                     </div>
-
 
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="autor" required>
@@ -73,17 +70,9 @@
                         <input type="number" class="form-control mb-3" name="quantidade" required>
                         <label for="quantidade">Quantidade</label>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                     <div class="text-center">
-                        <input type="submit" class="btn btn-success mt-3" value="Adicionar Livro">
+                        <input type="submit" class="btn btn-success mt-3 w-50" value="Salvar">
                     </div>
                 </fieldset>
             </form>
