@@ -7,15 +7,14 @@ Projeto final de desenvolvimento de sistema com linguagem php.
 2. O BANCO NÃO TEM SENHA
 
 ### O sistema é dividido em dois tipos de usuários:
-#### 1 - Administrador:
-
+#### 1. Administrador:
 
 Usuário: joao
 Senha: 123
 
 Com esta conta, é possível cadastrar, alterar e deletar livros, além de visualizá-los. Também é possível receber a devolução dos livros, permitindo uma administração completa do sistema.
 
-#### 2 - Usuário Padrão:
+#### 2. Usuário Padrão:
 
 Esse tipo de usuário pode ser cadastrado automaticamente na opção "Criar Conta". Fizemos o exemplo abaixo:
 
