@@ -2,7 +2,6 @@
 projeto final de desenvolvimento de sistema com linguagem php
 
 ------------------------------------------------------------------
-###### IMPORTANTE ######
 Orientações para o professor testar o sistema:
 1- A PÁGINA PRINCIPAL É A login.php
 2 - O BANCO NÃO TEM SENHA
